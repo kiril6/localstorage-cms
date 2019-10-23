@@ -1,0 +1,91 @@
+:host {
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+    width: 80%;
+    padding-top: 10%;
+}
+
+
+.content__left,
+.content__right {
+    flex: 40%;
+}
+
+h1 {
+    width: 200px;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-bottom: 100px;
+}
+
+button[mat-stroked-button] {
+    border: 1px solid black;
+    padding: 4px 10px;
+    font-size: 16px;
+
+    &:hover {
+        background-color: rgb(106, 240, 174);
+    }
+}
+
+.content__right {
+    position: relative;
+
+    .content__right--table {
+        border: 1px solid black;
+    }
+
+    .content__right--title {
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid black;
+        font-weight: bold;
+    }
+
+    .content__right--saved {
+        min-height: 100px;
+        height: 420px;
+        overflow-y: auto;
+        border-top: 4px solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+        box-shadow: 0px 10px 8px 0px rgba(0, 0, 0, 0.1);
+
+        &:last-child {
+            margin-bottom: 80px;
+        }
+
+        .loop-storage:empty {
+            display: none;
+        }
+    }
+
+    .snippet {
+        padding: 20px;
+        border: 1px solid black;
+        margin: 20px 10px 10px 10px;
+
+        ::ng-deep input[type=text] {
+            height: 30px;
+            width: 300px;
+            border: 1px solid black;
+            padding: 0 10px;
+        }
+
+        ::ng-deep textarea {
+            width: 300px;
+            border: 1px solid black;
+            margin: 20px 0 60px 0;
+        }
+
+
+    }
+
+
+
+    .clear-all {
+        position: absolute;
+        bottom: 10px;
+        left: 31%;
+    }
+}

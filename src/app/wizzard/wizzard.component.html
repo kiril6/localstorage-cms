@@ -1,0 +1,150 @@
+<div id="wizzard1" *ngIf="isWizzard1">
+    <h3>Select Input Type</h3>
+    <div class="selection1" [ngClass]="this.option.first === 'option1' ? 'outline' : ''">
+        <label>Text Input</label>
+        <div><input type="text"></div>
+        <div>
+            <button [disabled]="this.optionSelected.wizzard1" (click)="this.itemSelected('wizzard1', 5, 'option1')"
+                mat-stroked-button>Select</button>
+        </div>
+    </div>
+
+    <div class="selection2" [ngClass]="this.option.first === 'option2' ? 'outline' : ''">
+        <label>Text Area</label>
+        <div><textarea rows="10" cols="50"></textarea></div>
+        <div>
+            <button [disabled]="this.optionSelected.wizzard1" (click)="this.itemSelected('wizzard1', 5, 'option2')"
+                mat-stroked-button>Select</button>
+        </div>
+    </div>
+
+    <div class="selection3" [ngClass]="this.option.first === 'option3' ? 'outline' : ''">
+        <label><input type="radio" name="radio" value="radioInput"> Radio Button input </label>
+        <div>
+            <button [disabled]="this.optionSelected.wizzard1" (click)="this.itemSelected('wizzard1', 5, 'option3')"
+                mat-stroked-button>Select</button>
+        </div>
+    </div>
+
+    <div class="selection4" [ngClass]="this.option.first === 'option4' ? 'outline' : ''">
+        <label><input type="checkbox" name="checkbox" value="checkboxInput"> CheckBox input</label>
+        <div>
+            <button [disabled]="this.optionSelected.wizzard1" (click)="this.itemSelected('wizzard1', 5, 'option4')"
+                mat-stroked-button>Select</button>
+        </div>
+    </div>
+
+</div>
+
+<div id="wizzard2" *ngIf="isWizzard2">
+    <h3>Select Colors</h3>
+    <div class="selection1" [ngClass]="this.option.second === 'option1' ? 'outline' : ''">
+        <div>border color</div>
+        <button [disabled]="this.optionSelected.wizzard2" (click)="this.itemSelected('wizzard2', 5, 'option1')"
+            mat-stroked-button>Select</button>
+    </div>
+
+    <div class="selection2" [ngClass]="this.option.second === 'option2' ? 'outline' : ''">
+        <div>text color</div>
+        <button [disabled]="this.optionSelected.wizzard2" (click)="this.itemSelected('wizzard2', 5, 'option2')"
+            mat-stroked-button>Select</button>
+    </div>
+
+    <div class="selection3" [ngClass]="this.option.second === 'option3' ? 'outline' : ''">
+        <div>background color</div>
+        <button [disabled]="this.optionSelected.wizzard2" (click)="this.itemSelected('wizzard2', 5, 'option3')"
+            mat-stroked-button>Select</button>
+    </div>
+
+</div>
+
+
+<div id="wizzard3" *ngIf="isWizzard3">
+    <h3>Enter Input Headline</h3>
+    <div class="selection1" [ngClass]="this.option.third === 'option1' ? 'outline' : ''">
+        <input [(ngModel)]="labelModel" (focus)="this.itemSelected('wizzard3', 5, 'option1')" type="text"
+            value="Name your label">
+    </div>
+</div>
+
+<div id="wizzard4" *ngIf="isWizzard4">
+    <h3>Select Font</h3>
+    <div class="selection1">
+        <ol>
+            <li [ngClass]="this.option.fourth === 'option1' ? 'outline' : ''"><label
+                    (click)="this.itemSelected('wizzard4', 5, 'option1')" class="family-one"><input type="radio"
+                        name="radio" value="radioInput"> Select font family one</label></li>
+            <li [ngClass]="this.option.fourth === 'option2' ? 'outline' : ''"><label
+                    (click)="this.itemSelected('wizzard4', 5, 'option2')" class="family-two"><input type="radio"
+                        name="radio" value="radioInput"> Select font family two</label></li>
+            <li [ngClass]="this.option.fourth === 'option3' ? 'outline' : ''"><label
+                    (click)="this.itemSelected('wizzard4', 5, 'option3')" class="family-three"><input type="radio"
+                        name="radio" value="radioInput"> Select font family three</label></li>
+        </ol>
+    </div>
+</div>
+
+<div id="wizzard5" *ngIf="isWizzard5">
+    <h3>Preview created snippets code and visual</h3>
+    <div class="selection1">
+        <div class="code-markup"><code [innerText]="this.outputElement()"></code></div>
+    </div>
+    <div class="selection2">
+
+        <div *ngIf="this.option.first==='option1'" class="element1" [ngStyle]="{'font-family':fontFamily()}">
+            <label> {{ this.snippetLabel }}</label>
+            <div><input type="text"
+                    [ngStyle]="{'border-bottom':styleProperty('border'), 'color' :styleProperty('color'), 'background-color' :styleProperty('background')}">
+            </div>
+        </div>
+
+        <div *ngIf="this.option.first==='option2'" class="element2"
+            [ngStyle]="{'font-family':fontFamily()}">
+            <label>{{ this.snippetLabel }}</label>
+            <div><textarea rows="10" cols="50"
+                    [ngStyle]="{'border-bottom':styleProperty('border'), 'color' :styleProperty('color'), 'background-color' :styleProperty('background')}"></textarea>
+            </div>
+        </div>
+
+        <div *ngIf="this.option.first==='option3'" class="element3"
+            [ngStyle]="{'font-family':fontFamily()}">
+            <label
+                [ngStyle]="{'border-bottom':styleProperty('border'), 'color' :styleProperty('color'), 'background-color' :styleProperty('background')}"><input
+                    type="radio" name="radio" value="radioInput"> {{ this.snippetLabel }}</label>
+        </div>
+
+        <div *ngIf="this.option.first==='option4'" class="element4"
+            [ngStyle]="{'font-family':fontFamily()}">
+            <label
+                [ngStyle]="{'border-bottom':styleProperty('border'), 'color' :styleProperty('color'), 'background-color' :styleProperty('background')}"><input
+                    type="checkbox" name="checkbox" value="checkboxInput"> {{ this.snippetLabel }}</label>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer-navigation">
+    <div class="footer-navigation__progress">
+        Progress... <span *ngIf="!isWizzard1">{{ this.progressValue }}%</span>
+        <mat-progress-bar mode="determinate" [value]="this.progressValue"></mat-progress-bar>
+    </div>
+    <div class="footer-navigation__previous">
+        <button (click)="this.wizzardNavigation('previous')"
+            [ngStyle]="{'visibility':isWizzard1 ? 'hidden' : 'visible' }"
+            mat-stroked-button>{{ buttonPrevious }}</button>
+    </div>
+    <div class="footer-navigation__next">
+        <button [ngClass]="this.conditionIs ? '' : 'next-disabled'" mat-stroked-button>
+
+            <template [ngStyle]="{'display':isWizzard5 ? 'none' : 'block' }">
+                <span [ngStyle]="{'display':isWizzard4 ? 'none' : 'block' }"
+                    (click)="this.wizzardNavigation('next')">{{ buttonNext }}</span>
+                <span [ngStyle]="{'display':isWizzard4 && !isWizzard5 ? 'block' : 'none' }"
+                    (click)="this.wizzardNavigation('preview')">{{ buttonPreview }}</span>
+            </template>
+            <span [ngStyle]="{'display':isWizzard5 ? 'block' : 'none' }"
+                (click)="this.wizzardNavigation('save')">{{ buttonSave}}</span>
+        </button>
+    </div>
+</div>

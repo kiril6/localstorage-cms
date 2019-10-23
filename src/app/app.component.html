@@ -1,0 +1,21 @@
+<!-- <app-home></app-home> -->
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span [routerLink]="['home']">{{ title }}</span>
+    <div *ngIf="!isHome">
+      <button [disabled]="this.wizzardState.btn1" mat-flat-button color="accent"
+        [routerLink]="['wizzard/:1']">{{ wizzard1 }}</button>
+      <button [disabled]="this.wizzardState.btn2" mat-flat-button color="accent"
+        [routerLink]="['wizzard/:2']">{{ wizzard2 }}</button>
+      <button [disabled]="this.wizzardState.btn3" mat-flat-button color="accent"
+        [routerLink]="['wizzard/:3']">{{ wizzard3 }}</button>
+      <button [disabled]="this.wizzardState.btn4" mat-flat-button color="accent"
+        [routerLink]="['wizzard/:4']">{{ wizzard4 }}</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

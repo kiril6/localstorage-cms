@@ -1,0 +1,28 @@
+<div class="content__left">
+    <h1>
+        {{ title }}
+    </h1>
+    <button [routerLink]="['wizzard/:1']" mat-stroked-button>{{ buttonCreateSnippet }}</button>
+</div>
+<div class="content__right">
+    <div class="content__right--table">
+        <div class="content__right--title">Saved Snippets</div>
+        <div class="content__right--saved">
+
+            <div class="loop-storage" *ngFor="let item of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]">
+                <div *ngIf="this.listStoredSnippets('item' + (item + 1))">
+
+                    <div class="snippet" [innerHTML]="this.listStoredSnippets('item' + (item + 1)) | keepHtml"></div>
+
+                    <button (click)="this.manageStorage('copy', item+1)" mat-stroked-button>{{ copySnippet }}</button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button (click)="this.manageStorage('delete', item+1)"
+                        mat-stroked-button>{{ deleteSnippet }}</button>
+                </div>
+            </div>
+
+            <br><br>
+            <div class="clear-all" *ngIf="this.listStoredSnippets('item2')"><button
+                    (click)="this.manageStorage('clear', '')" mat-stroked-button>{{ deleteAllSnippets }}</button></div>
+        </div>
+    </div>

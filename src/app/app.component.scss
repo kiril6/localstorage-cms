@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+span {
+    margin-right: 200px;
+    cursor: pointer;
+}
+
+button[mat-flat-button] {
+    margin-right: 20px;
+}
